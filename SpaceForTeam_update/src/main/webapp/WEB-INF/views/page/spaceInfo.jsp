@@ -1,20 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
 	<title>SpaceForTeam - search your space !</title>
-	<!-- Favicon	-->
-	<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-	<!-- Bootstrap icons-->
+	<!-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-	<!-- Core theme CSS (includes Bootstrap)-->
-	<link href="css/styles.css" rel="stylesheet" />
-	</head>
-	<body class="d-flex flex-column">
+	<link href="resources/css/styles.css" rel="stylesheet" />
+</head>
+<body class="d-flex flex-column">
 	<main class="flex-shrink-0">
 		<!-- nav -->
        	<jsp:include page="../inc/top.jsp" />
@@ -63,66 +60,39 @@
 								<div class="m-0 border-bottom">
 									<div class="ms-3">
 										<div class="fw-bold d-flex align-items-center">
-											<p class="fst-italic fw-noaml mb-0 ms-3 fw-light fs-6"><%=redto.getRe_date() %></p>
+											<p class="fst-italic fw-noaml mb-0 ms-3 fw-light fs-6"><%//=redto.getRe_date() %></p>
 											<!-- 	본인일 경우 리뷰 삭제하기 기능 -->
-											<a class="nav-link" href="ReviewDeletePro.re?s_num=<%=redto.getS_num() %>&re_num=<%=redto.getRe_num() %>">삭제하기</a>
-										<%
-											}
-										}
-										%>
+											<a class="nav-link" href="ReviewDeletePro.re?s_num=<%//=redto.getS_num() %>&re_num=<%//=redto.getRe_num() %>">삭제하기</a>
 										</div>
 										<div>
-										<%
-										int star=0;
-											for(star=0; star<redto.getRe_point(); star++){
-												%>★
-											<%
-											}
-											while(star<5) {%>
-											☆
-											<%
-											star++;
-											} %>
+										★★★★★
 										</div>
-										<div class="p-1"><%=redto.getRe_content() %></div>
+										<div class="p-1"><%//=redto.getRe_content() %></div>
 									</div>
 									<!-- Host reply -->
 									<!--답글 있음 -->
-									<%if(redto.getRe_reply() != null) {%>
 									<div class="ms-3">
 										<div class="d-flex mt-3 mb-4 ">
 											<div class="ms-3 p-sm-4 bg-dark bg-opacity-25 col-5">
 												<div class="fw-bold d-flex align-items-center">
-													<%=hdto.getH_id() %>
-													<p class="fst-italic fw-noaml mb-0 ms-3 fw-light fs-6"><%=redto.getRe_date() %></p>
+													<%//=hdto.getH_id() %>
+													<p class="fst-italic fw-noaml mb-0 ms-3 fw-light fs-6"><%//=redto.getRe_date() %></p>
 												</div>
-												<%=redto.getRe_reply() %>
+												<%//=redto.getRe_reply() %>
 											</div>
 										</div>
 									</div>
 									<!--답글 없음 -->
-									<%
-									}else if(redto.getRe_reply()==null){
-										if(id!=null){
-											if(id.equals(hdto.getH_id())){%>
-										<!-- 이 공간의 호스트 --> -->
+									<!-- 이 공간의 호스트 -->
 										<div class="ms-3">
 											<form class="mb-4 col" action="ReviewWritePro.re" method="post" >
-											<input type="hidden" name="s_num" value=<%=sdto.getS_num() %> >
+											<input type="hidden" name="s_num" value="<%//=sdto.getS_num() %>" >
 											<input type="submit" class="btn btn-secondary btn-lg px-4 col-2" value="답글 달기" >
 											<textarea class="form-control col-10"  name="re_reply" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
 											</form>
 										</div>
-									<%
-									}
-									%>
 								</div>
 							</li>
-							<% 
-							}
-									}
-						}
-						%>
 						</ul>
 					</div>
 				</div>
@@ -132,30 +102,17 @@
 		<div class="col-lg-3">
 			<section class="mb-5 pt-4">
 				<h2 class="fw-bolder mb-2 mt-5">평점</h2>
-				<p class="fs-1 mb-4"><%=re_avg.getRe_avg() %></p>
-				
-
-				<%if(job==1){ %>
-				<a class="btn btn-primary btn-lg px-4 me-sm-3" href="BookingInsertForm.bk?s_num=<%=sdto.getS_num()%>">예약하기</a>
-				<%
-				}else if(job==2){
-					if(id.equals(hdto.getH_id())){
-				%>
-				<a class="btn btn-primary btn-lg px-4 me-sm-3" href="SpaceList.sp"> 나의 공간 관리하기</a>								
-				<%						
-					}
-				}else if(job==0){%>
-				<a class="btn btn-primary btn-lg px-4 me-sm-3" href="UserLoginForm.us">로그인하고 예약하기</a>				
-				<%
-				}
-				%>
+					<p class="fs-1 mb-4"> <%//=re_avg.getRe_avg() %> </p>
+						<a class="btn btn-primary btn-lg px-4 me-sm-3" href="BookingInsertForm.bk?s_num=<%//=sdto.getS_num()%>">예약하기</a>
+						<!-- 로그인 X 일경우 로그인해주세요 -> 로그인 페이지로 -->
+						<!-- 호스트인 경우 호스트 계정으로는 예약하실 수 없습니다 경고창 -->
 				<h3 class="fw-bolder mb-2 mt-5">시설 및 옵션</h3>
-				<%=sdto.getS_opt() %>
+				<%//=sdto.getS_opt() %>
 				<h3 class="fw-bolder mb-2 mt-5">위치</h3>
 					<div class="col-lg-12 mb-5">
 						<div class="card h-100 border">
 							<div class="card-body p-4">
-								<p class="card-text mb-0"><%=sdto.getS_address()%></p>
+								<p class="card-text mb-0"><%//=sdto.getS_address()%></p>
 							</div>
 						</div>
 					</div>
@@ -163,81 +120,15 @@
 						<div class="card h-100 border">
 							<div class="card-body p-4">
 								<h5 class="card-title mb-3">공지사항</h5>
-								<p class="card-text mb-0"><%=sdto.getS_memo()%></p>
+								<p class="card-text mb-0"><%//=sdto.getS_memo()%></p>
 							</div>
 							<div class="card-footer p-3 bg-light border-top">
-								<div class="fw-bold me-sm-3"><%=hdto.getH_name()%></div>
-								<div class="fw-nomal"><%=hdto.getH_phone()%></div>
+								<div class="fw-bold me-sm-3"><%//=hdto.getH_name()%></div>
+								<div class="fw-nomal"><%//=hdto.getH_phone()%></div>
 							</div>
 						</div>
 					</div>
-							<!--  Qna	 -->
-					<%
-					ArrayList<QnaDTO> qnaList = (ArrayList<QnaDTO>) request.getAttribute("qnaList");
-					%>
-					<h2 class="fw-bolder mb-3">Q&amp;A</h2>
-					<%if(qnaList !=null){
-						for (int i = 0; i < qnaList.size(); i++) {
-							qdto =qnaList.get(i);
-					%>
-                     <div class="accordion mb-3" id="accordionExample">
-                     	<div class="accordion-item">
-							<h3 class="accordion-header" id="heading<%=qdto.getQ_num() %>">
-								<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=qdto.getQ_num() %>" aria-expanded="true" aria-controls="collapse<%=qdto.getQ_num() %>">
-									Q. <%=qdto.getQ_content() %>
-								</button>
-							</h3>
-							<!-- 답변 / 질문 달기 -->
-                            <div class="accordion-collapse collapse show" id="collapse<%=qdto.getQ_num() %>" aria-labelledby="heading<%=qdto.getQ_num() %>" data-bs-parent="#accordionExample">
-                                <%
-                                if(qdto.getQ_recontent()==null){
-                                if(id!=null){
-                                	if(id==hdto.getH_id()){ %>
-								<!-- 답변 없음. 이 공간의 주인인 경우 -->
-								<div class="accordion-body">
-                                	<form class="mb-4 col" action="QnaWritePro.qa" method="post" >
-									<input type="hidden" name="s_num" value=<%=sdto.getS_num() %> >
-									<textarea class="form-control col-10 mb-2"  name="q_recontent" rows="3" placeholder="질문에 답변해주세요!"></textarea>
-									<input type="submit" class="btn btn-secondary btn-lg px-4 fs-6" value="답글달기" >
-									</form>
-                                </div>
-                                <%
-                                }else{
-                                %>
-									<!-- 답변 없음. 이 공간의 주인이 아닌 경우  -->
-								<div class="accordion-body">
-                                	A. 답변을 기다리고 있어요.
-                                </div>
-                                <%}
-                                }
-                                }else{
-                                %>
-								<!--  답변 있음 -->
-								<div class="accordion-body">
-                                A.<%=qdto.getQ_recontent() %>
-                                </div>
-                                <%
-                                }
-                                %>
-                             </div>
-                        </div>
-                    </div>
-                    <%
-                    	}
-					}
-					
-					if(job==1){
-					%>
-					<form class="mb-4 col" action="QnaWritePro.qa" method="post" >
-						<input type="hidden" name="s_num" value=<%=sdto.getS_num() %> >
-						<input type="hidden" name="h_num" value=<%=hdto.getH_num() %> >
-						<textarea class="form-control col-10 mb-2"  name="q_content" rows="3" placeholder="호스트님께 질문해보세요!"></textarea>
-						<input type="submit" class="btn btn-secondary btn-lg px-4 col" value="질문하기" >
-					</form>
-					<%
-						}
-					}
-					%>
+					<!-- Qna -->
 			</section>
 		</div>
 	</div>
@@ -245,17 +136,10 @@
 </section>
 </main>
 <!-- Footer-->
-<footer class="bg-dark py-4 mt-auto">
-	<div class="container px-5">
-		<div class="row align-items-center justify-content-between flex-column flex-sm-row">
-			<div class="col-auto"><div class="small m-0 text-white">spaceforteam</div></div>
-        	<div class="col-auto"></div>
-        </div>
-    </div>
-</footer>
+	<jsp:include page="../inc/footer.jsp" />
 	<!-- Bootstrap core JS-->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
 </body>
 </html>

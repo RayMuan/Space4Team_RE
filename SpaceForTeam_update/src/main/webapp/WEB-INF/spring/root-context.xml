@@ -11,7 +11,7 @@
 	<!-- 디비연결 객체생성 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/spaceUpdate"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/space"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="1234"></property>	
 	</bean>	

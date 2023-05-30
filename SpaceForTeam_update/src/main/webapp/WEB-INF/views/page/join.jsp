@@ -24,63 +24,63 @@
 						</div>
 						<div class="row gx-5 justify-content-center">
 							<div class="col-lg-8 col-xl-6">
-								<form action="UserInsertPro.us" id="join" method="post">
+								<form action="${pageContext.request.contextPath}/joinPro" id="joinForm" method="post">
 									<!-- Id input-->
 									<div class="input-group mb-3 gap-md-2">
 										<div class="form-floating col">
-											<input class="form-control" name="userId" id="userId" type="text" placeholder="아이디"  data-sb-validations="required" aria-describedby="button-newsletter" />
+											<input class="form-control" name="g_id" id="g_id" type="text" placeholder="아이디"/>
         	                           		<label for="userId">아이디</label>
         	                           	</div>
 										<div class="my-auto">
 											<button class="btn btn-outline-dark btn-lg" id="button1" type="button">중복확인</button>
 										</div>
 									</div>
-									
-                    	                <div class="invalid-feedback" data-sb-feedback="id:required"></div>
+									<div class="invalid-feedback"></div>
                             	    <!-- Pass1 input-->
                             	    <div class="form-floating mb-3">
-                         	    	   	<input class="form-control" name="user_pass" id="user_pass" type="password" placeholder="Enter your passward..." data-sb-validations="required">
+                         	    	   	<input class="form-control" name="g_pass" id="g_pass" type="password" placeholder="Enter your passward...">
                             	    	<label for="pass">비밀번호</label>
-                                		<div class="invalid-feedback" data-sb-feedback="pass:required"></div>
+                                		<div class="invalid-feedback"></div>
    		                             </div>
    		                             <!-- Pass2 input-->
    		                             <div class="form-floating mb-3">
-   		                             	<input class="form-control" name="user_pass1" id="user_pass1" type="password" placeholder="Enter your Confirm password..." data-sb-validations="required">
-   		                             	<label for="pass1">비밀번호 재확인</label>
+   		                             	<input class="form-control" name="g_pass_re" id="g_pass_re" type="password" placeholder="Enter your Confirm password...">
+   		                             	<label for="g_pass_re">비밀번호 재확인</label>
    		                             	<div class="invalid-feedback" data-sb-feedback="pass:required"></div>
    		                             </div>
                                 	<!-- Name input-->
                                 	<div class="form-floating mb-3">
-                                		<input class="form-control" name="user_name" id="user_name" type="text" placeholder="Enter your name..." data-sb-validations="required">
+                                		<input class="form-control" name="g_name" id="g_name" type="text" placeholder="Enter your name...">
                                 		<label for="name">이름</label>
                                 		<div class="invalid-feedback" data-sb-feedback="name:required"></div>
                                 	</div>
 									<!-- Email address input-->
 									<div class="form-floating mb-3">
-										<input class="form-control" name="user_email" id="user_email" type="email" placeholder="name@example.com" data-sb-validations="required,email">
-										<label for="email">이메일</label>
-										<input type="hidden" name="emaildup" value="" id="emaildup">
-                        	            <div class="invalid-feedback" data-sb-feedback="email:required"></div>
+										<input class="form-control" name="g_email" id="g_email" type="email" placeholder="name@example.com">
+										<label for="g_email">이메일</label>
+<!-- 										<input type="hidden" name="emaildup" value="" id="emaildup"> -->
+                        	            <div class="invalid-feedback"></div>
 									</div>
                                 <!-- Phone number input-->
                                 <div class="form-floating mb-3">
-                                	<input class="form-control" name="user_phone" id="user_phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required">
-                                	<label for="phone">핸드폰 번호</label>
-                                	<div class="invalid-feedback" data-sb-feedback="phone:required"></div>
+                                	<input class="form-control" name="g_phone" id="g_phone" type="tel" placeholder="(123) 456-7890">
+                                	<label for="g_phone">핸드폰 번호</label>
+                                	<div class="invalid-feedback"></div>
+<!--                                 	 data-sb-feedback="phone:required" -->
                                 </div>
-                                <!-- birth input-->
-                                <div class="form-floating mb-3">
-                                	<input class="form-control" name="user_birth" id="user_birth" type="text" placeholder="1993-01-01" data-sb-validations="required">
-                                	<label for="birth">생년월일</label>
-                                	<div class="invalid-feedback" data-sb-feedback="birth:required"></div>
-                                </div>
-                                <div class="d-none" id="submitSuccessMessage">
-                                	<div class="text-center mb-3">
-                                		<div class="fw-bolder">Form submission successful!</div>
-                                	</div>
-                                </div>
+<!--                                 birth input -->
+<!--                                 <div class="form-floating mb-3"> -->
+<!--                                 	<input class="form-control" name="user_birth" id="user_birth" type="text" placeholder="1993-01-01" data-sb-validations="required"> -->
+<!--                                 	<label for="birth">생년월일</label> -->
+<!--                                 	<div class="invalid-feedback" data-sb-feedback="birth:required"></div> -->
+<!--                                 </div> -->
+<!--                                 <div class="d-none" id="submitSuccessMessage"> -->
+<!--                                 	<div class="text-center mb-3"> -->
+<!--                                 		<div class="fw-bolder">Form submission successful!</div> -->
+<!--                                 	</div> -->
+<!--                                 </div> -->
                                 <div>
-                                <input type="submit" class="btn-primary btn-lg col" id="submitButton" name="submit" value="회원가입">
+                                <input type="submit" class="btn-primary btn-lg col" id="joinBtn" name="submit" value="회원가입">
 								</div>
                             </form>
 						</div>

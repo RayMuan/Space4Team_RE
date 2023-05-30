@@ -23,7 +23,7 @@
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
-                            	<form action="HostLoginPro.ho" method="post" id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            	<form action="${pageContext.request.contextPath}/loginPro" method="post" id="loginForm">
 									<div class="form-floating mb-3">
                                         <input class="form-control bg-light " id="h_id" name="h_id" type="text" placeholder="name@example.com" data-sb-validations="required,email" />
                                         <label for="id">id</label>
@@ -43,7 +43,7 @@
                                     </div>
                                     <!-- Submit Button-->
                                     <div class="d-grid">
-                                    	<button class="btn btn-primary btn-lg" id="login" type="submit">로그인</button>
+                                    	<button class="btn btn-primary btn-lg" id="loginBtn" type="submit">로그인</button>
                                     </div>
                       			</form>
                       			<div class="my-2">
@@ -59,13 +59,11 @@
         <!-- footer -->
         <jsp:include page="../inc/footer.jsp" />
         <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+        <script type="text/javascript">
+        
+        </script>
         <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

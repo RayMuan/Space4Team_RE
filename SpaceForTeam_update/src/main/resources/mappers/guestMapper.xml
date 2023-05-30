@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.space4team.mappers.guestMapper">
+	<insert id="joinGuest">
+		insert into guest(g_no, g_id, g_pass, g_name, g_email, g_phone)
+		values(#{g_no}, #{g_id}, #{g_pass}, #{g_name}, #{g_email}, #{g_phone})
+	</insert>
+	
+	<select id="getMaxGuest" resultType="java.lang.Integer">
+		select MAX(REGEXP_REPLACE(g_no, '[a-z]', ''))+1
+		from guest
+	</select>
+
 </mapper>
