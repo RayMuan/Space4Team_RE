@@ -7,8 +7,14 @@
 	</insert>
 	
 	<select id="getMaxGuest" resultType="java.lang.Integer">
-		select MAX(REGEXP_REPLACE(g_no, '[a-z]', ''))+1
+		select MAX(REGEXP_REPLACE(g_no, 'G', ''))+1
 		from guest
+	</select>
+
+	<select id="getGuest" resultType="com.space4team.domain.GuestDTO">
+		select *
+		from guest
+		where g_id=#{g_id}
 	</select>
 
 </mapper>

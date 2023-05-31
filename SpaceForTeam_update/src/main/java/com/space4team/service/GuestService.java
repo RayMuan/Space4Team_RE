@@ -6,4 +6,6 @@ public interface GuestService {
 
 	void joinGuest(GuestDTO guestDTO);
 
+	GuestDTO getGuest(String g_id);
+
 }

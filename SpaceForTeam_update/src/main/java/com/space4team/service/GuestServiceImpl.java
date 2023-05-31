@@ -29,4 +29,11 @@ public class GuestServiceImpl implements GuestService{
 		guestDAO.joinGuest(guestDTO);
 	}// joinGuest
 
+	@Override
+	public GuestDTO getGuest(String g_id) {
+		System.out.println("GuestServiceImpl getGuest()");
+		return guestDAO.getGuest(g_id);
+	}//getGuest
+	
+	
 }

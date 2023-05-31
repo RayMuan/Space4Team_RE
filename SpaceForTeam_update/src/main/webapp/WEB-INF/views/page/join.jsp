@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="SpaceForTeam join page" />
         <title>SpaceForTeam - search your space !</title>
@@ -28,42 +28,42 @@
 									<!-- Id input-->
 									<div class="input-group mb-3 gap-md-2">
 										<div class="form-floating col">
-											<input class="form-control" name="g_id" id="g_id" type="text" placeholder="아이디"/>
+											<input class="form-control" name="id" id="id" type="text" placeholder="아이디"/>
         	                           		<label for="userId">아이디</label>
         	                           	</div>
 										<div class="my-auto">
-											<button class="btn btn-outline-dark btn-lg" id="button1" type="button">중복확인</button>
+											<button class="btn btn-outline-dark btn-lg" id="idChk" type="button">중복확인</button>
 										</div>
 									</div>
 									<div class="invalid-feedback"></div>
                             	    <!-- Pass1 input-->
                             	    <div class="form-floating mb-3">
-                         	    	   	<input class="form-control" name="g_pass" id="g_pass" type="password" placeholder="Enter your passward...">
+                         	    	   	<input class="form-control" name="pass" id="pass" type="password" placeholder="Enter your passward...">
                             	    	<label for="pass">비밀번호</label>
                                 		<div class="invalid-feedback"></div>
    		                             </div>
    		                             <!-- Pass2 input-->
    		                             <div class="form-floating mb-3">
-   		                             	<input class="form-control" name="g_pass_re" id="g_pass_re" type="password" placeholder="Enter your Confirm password...">
+   		                             	<input class="form-control" name="pass_re" id="pass_re" type="password" placeholder="Enter your Confirm password...">
    		                             	<label for="g_pass_re">비밀번호 재확인</label>
-   		                             	<div class="invalid-feedback" data-sb-feedback="pass:required"></div>
+   		                             	<div class="invalid-feedback"></div>
    		                             </div>
                                 	<!-- Name input-->
                                 	<div class="form-floating mb-3">
-                                		<input class="form-control" name="g_name" id="g_name" type="text" placeholder="Enter your name...">
+                                		<input class="form-control" name="name" id="name" type="text" placeholder="Enter your name...">
                                 		<label for="name">이름</label>
-                                		<div class="invalid-feedback" data-sb-feedback="name:required"></div>
+                                		<div class="invalid-feedback"></div>
                                 	</div>
 									<!-- Email address input-->
 									<div class="form-floating mb-3">
-										<input class="form-control" name="g_email" id="g_email" type="email" placeholder="name@example.com">
+										<input class="form-control" name="email" id="email" type="email" placeholder="name@example.com">
 										<label for="g_email">이메일</label>
 <!-- 										<input type="hidden" name="emaildup" value="" id="emaildup"> -->
                         	            <div class="invalid-feedback"></div>
 									</div>
                                 <!-- Phone number input-->
                                 <div class="form-floating mb-3">
-                                	<input class="form-control" name="g_phone" id="g_phone" type="tel" placeholder="(123) 456-7890">
+                                	<input class="form-control" name="phone" id="phone" type="tel" placeholder="(123) 456-7890">
                                 	<label for="g_phone">핸드폰 번호</label>
                                 	<div class="invalid-feedback"></div>
 <!--                                 	 data-sb-feedback="phone:required" -->
@@ -91,11 +91,28 @@
 	</main>
 	<!-- footer -->
 	<jsp:include page="../inc/footer.jsp" />
-	<script type="text/javascript" src="script/jquery-3.6.3.js"></script>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+	<!-- script -->
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+	<script type="text/javascript">
+		$("#idChk").on("click", function(){
+			$.ajax({
+				type:"POST",
+				url : "${pageContext.request.contextPath}/idchk",
+				data: {'id':$('#id').val()},
+				success : function(result){
+					if(result.trim()=="OK"){
+					 alert("아이디 사용가능");
+					}else{
+					 alert("아이디 중복");						
+					}
+				},
+				error : function (jqXHR, textStatus, errorThrown){
+					console.log(jqXHR);  //응답 메시지
+					console.log(textStatus); //"error"로 고정인듯함
+					console.log(errorThrown);
+				}
+			});
+		});
+	</script>
+	</body>
 </html>

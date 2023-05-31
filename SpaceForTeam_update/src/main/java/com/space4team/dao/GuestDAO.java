@@ -8,4 +8,6 @@ public interface GuestDAO {
 
 	Integer getMaxGuest();
 
+	GuestDTO getGuest(String g_id);
+
 }

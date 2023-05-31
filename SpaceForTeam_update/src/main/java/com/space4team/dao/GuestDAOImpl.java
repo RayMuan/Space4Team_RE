@@ -25,5 +25,13 @@ public class GuestDAOImpl implements GuestDAO{
 		
 		return sqlSession.selectOne(namespace+".getMaxGuest");
 	}// getMaxGuest
+
+	@Override
+	public GuestDTO getGuest(String g_id) {
+		System.out.println("GuestDAOImpl getGuest");
+		System.out.println(g_id);
+		return sqlSession.selectOne(namespace+".getGuest", g_id);
+	}//getGuest
+	
 	
 }

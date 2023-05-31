@@ -58,12 +58,10 @@
         </main>
         <!-- footer -->
         <jsp:include page="../inc/footer.jsp" />
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
-        <script type="text/javascript">
+		<!-- script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+		<script type="text/javascript">
         
         </script>
-        <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+	</body>
 </html>

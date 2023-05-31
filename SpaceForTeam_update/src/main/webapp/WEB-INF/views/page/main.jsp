@@ -85,7 +85,7 @@
         </main>
 		<!-- footer -->
         <jsp:include page="../inc/footer.jsp" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/scripts.js"></script>
-    </body>
+		<!-- script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	</body>
 </html>
