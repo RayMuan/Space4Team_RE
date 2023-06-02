@@ -26,7 +26,7 @@
 							<div class="col-lg-8 col-xl-6">
 								<form action="${pageContext.request.contextPath}/joinPro" id="joinForm" method="post">
 									<!-- Id input-->
-									<div class="input-group mb-3 gap-md-2">
+									<div class="input-group gap-md-2">
 										<div class="form-floating col">
 											<input class="form-control" name="id" id="id" type="text" placeholder="아이디"/>
         	                           		<label for="userId">아이디</label>
@@ -35,52 +35,42 @@
 											<button class="btn btn-outline-dark btn-lg" id="idChk" type="button">중복확인</button>
 										</div>
 									</div>
-									<div class="invalid-feedback"></div>
-                            	    <!-- Pass1 input-->
-                            	    <div class="form-floating mb-3">
-                         	    	   	<input class="form-control" name="pass" id="pass" type="password" placeholder="Enter your passward...">
+									<div id="idFeedback"></div>
+									<!-- Pass1 input-->
+                            	    <div class="form-floating mt-3">
+                         	    	   	<input class="form-control" name="pass" id="pass" type="password" placeholder="비밀번호">
                             	    	<label for="pass">비밀번호</label>
-                                		<div class="invalid-feedback"></div>
+<!--                                 		<div class="invalid-feedback"></div> -->
    		                             </div>
    		                             <!-- Pass2 input-->
-   		                             <div class="form-floating mb-3">
-   		                             	<input class="form-control" name="pass_re" id="pass_re" type="password" placeholder="Enter your Confirm password...">
+   		                             <div class="form-floating mt-3">
+   		                             	<input class="form-control" name="pass_re" id="pass_re" type="password" placeholder="비밀번호 재확인">
    		                             	<label for="g_pass_re">비밀번호 재확인</label>
-   		                             	<div class="invalid-feedback"></div>
+   		                             	<div id="passReFeedback"></div>
    		                             </div>
                                 	<!-- Name input-->
-                                	<div class="form-floating mb-3">
-                                		<input class="form-control" name="name" id="name" type="text" placeholder="Enter your name...">
+                                	<div class="form-floating mt-3">
+                                		<input class="form-control" name="name" id="name" type="text" placeholder="이름">
                                 		<label for="name">이름</label>
                                 		<div class="invalid-feedback"></div>
                                 	</div>
 									<!-- Email address input-->
-									<div class="form-floating mb-3">
-										<input class="form-control" name="email" id="email" type="email" placeholder="name@example.com">
+									<div class="form-floating mt-3">
+										<input class="form-control" name="email" id="email" type="email" placeholder="이메링">
 										<label for="g_email">이메일</label>
 <!-- 										<input type="hidden" name="emaildup" value="" id="emaildup"> -->
                         	            <div class="invalid-feedback"></div>
 									</div>
                                 <!-- Phone number input-->
-                                <div class="form-floating mb-3">
-                                	<input class="form-control" name="phone" id="phone" type="tel" placeholder="(123) 456-7890">
-                                	<label for="g_phone">핸드폰 번호</label>
+                                <div class="form-floating mt-3">
+                                	<input class="form-control" name="phone" id="phone" type="tel" placeholder="핸드폰 번호">
+                                	<label for="g_phone">연락처 (숫자만 입력해주세요.)</label>
                                 	<div class="invalid-feedback"></div>
 <!--                                 	 data-sb-feedback="phone:required" -->
                                 </div>
-<!--                                 birth input -->
-<!--                                 <div class="form-floating mb-3"> -->
-<!--                                 	<input class="form-control" name="user_birth" id="user_birth" type="text" placeholder="1993-01-01" data-sb-validations="required"> -->
-<!--                                 	<label for="birth">생년월일</label> -->
-<!--                                 	<div class="invalid-feedback" data-sb-feedback="birth:required"></div> -->
-<!--                                 </div> -->
-<!--                                 <div class="d-none" id="submitSuccessMessage"> -->
-<!--                                 	<div class="text-center mb-3"> -->
-<!--                                 		<div class="fw-bolder">Form submission successful!</div> -->
-<!--                                 	</div> -->
-<!--                                 </div> -->
-                                <div>
-                                <input type="submit" class="btn-primary btn-lg col" id="joinBtn" name="submit" value="회원가입">
+
+                                <div class="mt-3">
+                                <button type="submit" class="btn-primary btn-lg col" id="joinBtn" name="joinBtn">회원가입</button>
 								</div>
                             </form>
 						</div>
@@ -94,25 +84,52 @@
 	<!-- script -->
 	<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 	<script type="text/javascript">
-		$("#idChk").on("click", function(){
-			$.ajax({
-				type:"POST",
-				url : "${pageContext.request.contextPath}/idchk",
-				data: {'id':$('#id').val()},
-				success : function(result){
-					if(result.trim()=="OK"){
-					 alert("아이디 사용가능");
-					}else{
-					 alert("아이디 중복");						
+		$('#idChk').on('click', function(){
+			if($('#id').val().trim()==''){
+				 $('#idFeedback').html('<div class="text-danger">아이디를 입력해주세요.</div>');
+			}else{	
+				$.ajax({
+					type:'POST',
+					url : '${pageContext.request.contextPath}/idchk',
+					data: {'id':$('#id').val().trim()},
+					success : function(result){
+						if(result.trim()=='OK'){
+						 $('#idFeedback').html('<div class="text-primary">사용 가능한 아이디 입니다.</div>');
+						}else{
+						 $('#idFeedback').html('<div class="text-danger">중복된 아이디 입니다.</div>');
+						}
+					},
+					error : function (jqXHR, textStatus, errorThrown){
+						console.log(jqXHR);  //응답 메시지
+						console.log(textStatus); //"error"로 고정인듯함
+						console.log(errorThrown);
 					}
-				},
-				error : function (jqXHR, textStatus, errorThrown){
-					console.log(jqXHR);  //응답 메시지
-					console.log(textStatus); //"error"로 고정인듯함
-					console.log(errorThrown);
-				}
-			});
+				});
+			}
 		});
+		
+		$('#joinForm').submit(function(){
+			//아이디 중복확인 여부
+			if($('#idFeedback').text()!='사용 가능한 아이디 입니다.'){
+				$('#id').focus();
+				return false;
+			}
+			// 비밀번호 재확인
+			if($('#pass').val()==$('#pass_re').val()){
+				$('#passReFeedback').html('');				
+			}else{
+				$('#passReFeedback').html('<div class="text-danger">비밀번호가 일치하지 않습니다.</div>');
+				return false;
+			}
+			// 이름
+			if($('#name').val().trim()==''){
+				$('#name').focus();
+				return false;
+			}
+			// 이메일 중복x
+			
+			// 연락처 숫자만 입력 가능, API 넣어보기
+			});
 	</script>
 	</body>
 </html>
