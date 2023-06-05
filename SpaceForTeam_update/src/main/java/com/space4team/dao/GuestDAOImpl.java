@@ -27,11 +27,18 @@ public class GuestDAOImpl implements GuestDAO{
 	}// getMaxGuest
 
 	@Override
-	public GuestDTO getGuest(String g_id) {
-		System.out.println("GuestDAOImpl getGuest");
+	public GuestDTO getGuestId(String g_id) {
+		System.out.println("GuestDAOImpl getGuestId");
 		System.out.println(g_id);
-		return sqlSession.selectOne(namespace+".getGuest", g_id);
-	}//getGuest
+			return sqlSession.selectOne(namespace+".getGuestId", g_id);
+	}//getGuestId
+
+	@Override
+	public GuestDTO getGuestEmail(String g_email) {
+		System.out.println("GuestDAOImpl getGuestEmail");
+		System.out.println(g_email);
+		return sqlSession.selectOne(namespace+".getGuestEmail", g_email);
+	}//getGuestEmail
 	
 	
 }

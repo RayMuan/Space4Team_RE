@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.space4team.mappers.guestMapper">
 	<insert id="joinGuest">
-		insert into guest(g_no, g_id, g_pass, g_name, g_email, g_phone)
-		values(#{g_no}, #{g_id}, #{g_pass}, #{g_name}, #{g_email}, #{g_phone})
+		insert into guest(g_no, g_id, g_pass, g_name, g_email)
+		values(#{g_no}, #{g_id}, #{g_pass}, #{g_name}, #{g_email})
 	</insert>
 	
 	<select id="getMaxGuest" resultType="java.lang.Integer">
@@ -11,10 +11,16 @@
 		from guest
 	</select>
 
-	<select id="getGuest" resultType="com.space4team.domain.GuestDTO">
+	<select id="getGuestId" resultType="com.space4team.domain.GuestDTO">
 		select *
 		from guest
 		where g_id=#{g_id}
+	</select>
+
+	<select id="getGuestEmail" resultType="com.space4team.domain.GuestDTO">
+		select *
+		from guest
+		where g_email=#{g_email}
 	</select>
 
 </mapper>

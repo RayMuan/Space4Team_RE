@@ -40,7 +40,7 @@ public class guestController {
 	public String joinPro(GuestDTO guestDTO){
 		System.out.println("GuestController joinPro()");
 		guestService.joinGuest(guestDTO);
-		return "page/join";
+		return "page/main";
 	}//joinPro
 
 	

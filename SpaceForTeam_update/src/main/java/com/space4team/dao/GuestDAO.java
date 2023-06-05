@@ -8,6 +8,8 @@ public interface GuestDAO {
 
 	Integer getMaxGuest();
 
-	GuestDTO getGuest(String g_id);
+	GuestDTO getGuestId(String g_id);
+
+	GuestDTO getGuestEmail(String g_email);
 
 }

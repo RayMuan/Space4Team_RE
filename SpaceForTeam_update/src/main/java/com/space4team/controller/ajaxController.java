@@ -18,13 +18,20 @@ public class ajaxController {
 	@Inject
 	private GuestService guestService;
 	
-	@RequestMapping(value = "/idchk", method = RequestMethod.POST)
-	public ResponseEntity<String> idchk(HttpServletRequest request){
+	@RequestMapping(value = "/guestchk", method = RequestMethod.POST)
+	public ResponseEntity<String> guestchk(HttpServletRequest request){
 		// (임시)게스트만 가능
+		GuestDTO guestDTO=null;
 		String result="";
 		String g_id=request.getParameter("id");
-		GuestDTO guestDTO=guestService.getGuest(g_id);
-		System.out.println(guestDTO);
+		String g_email=request.getParameter("email");
+		
+		if(g_id!=null) {
+			guestDTO=guestService.getGuestId(g_id);			
+		}else if(g_email != null) {
+			guestDTO=guestService.getGuestEmail(g_email);						
+		}
+		
 		if(guestDTO==null) {
 			result="OK";
 		}else {

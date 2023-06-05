@@ -6,7 +6,6 @@ public class GuestDTO {
 	private String g_pass;
 	private String g_name;
 	private String g_email;
-	private String g_phone;
 	
 	//get set
 	public String getG_no() {
@@ -38,11 +37,5 @@ public class GuestDTO {
 	}
 	public void setG_email(String g_email) {
 		this.g_email = g_email;
-	}
-	public String getG_phone() {
-		return g_phone;
-	}
-	public void setG_phone(String g_phone) {
-		this.g_phone = g_phone;
 	}
 }
