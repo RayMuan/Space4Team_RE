@@ -13,23 +13,33 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/main">Home</a></li>
-				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/join">Join</a></li>
+				<c:if test="${empty sessionScope.id }">
+					<li class="nav-item dropdown" id="navDropdown">
+						<a class="nav-link dropdown-toggle" href="#">Join</a>
+						<ul class="dropdown-menu dropdown-menu-end" id="navDropdownMenu">
+							<li>
+								<a class="dropdown-item" href="NoticeList.no">Guest Join</a>
+							</li>
+							<li>
+								<a class="dropdown-item" href="NoticeList.no">Host Join</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/login">Login</a>
+					</li>
+				</c:if>
 				<c:if test="${! empty sessionScope.id}">
 					<li class="nav-item"><a class="nav-link">${sessionScope.id}님</a></li>
 					<li class="nav-item"><a class="nav-link" href="UserLogout.us">Logout</a></li>
 					<li class="nav-item"><a class="nav-link" href="UserMypage.us">Mypage</a></li>
 				</c:if>
-				<c:if test="${empty sessionScope.id }">
-					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/login">Login</a>
-					</li>
-				</c:if>
 				<li class="nav-item"><a class="nav-link" href="#">Notice</a></li>
 <!-- 				<li class="nav-item dropdown"><a -->
 <!-- 					class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" -->
 <!-- 					role="button" data-bs-toggle="dropdown" aria-expanded="false">Community</a> -->
-<!-- 					<ul class="dropdown-menu dropdown-menu-end" -->
-<!-- 						aria-labelledby="navbarDropdownBlog"> -->
-<!-- 						<li><a class="dropdown-item" href="NoticeList.no">Notice</a> -->
+<!-- 					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog"> -->
+<!-- 						<li>
+								<a class="dropdown-item" href="NoticeList.no">Notice</a> -->
 <!-- 						</li> -->
 <!-- 					</ul> -->
 <!-- 				</li> -->

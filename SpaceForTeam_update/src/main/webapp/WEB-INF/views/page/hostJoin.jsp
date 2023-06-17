@@ -73,7 +73,7 @@
 		<!-- script -->
 		<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 		<script src="${pageContext.request.contextPath}/resources/js/javascript.js"></script>
-
+		
 <script type="text/javascript">
 	// 게스트 아이디 중복확인
 	$('#id').on('focusout', function(){
