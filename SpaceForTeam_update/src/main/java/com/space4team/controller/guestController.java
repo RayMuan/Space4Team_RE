@@ -13,32 +13,25 @@ import com.space4team.service.GuestService;
 public class guestController {
 	@Inject
 	private GuestService guestService;
-	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
-		System.out.println("GuestController login()");
-		
-		return "page/login";
-	}//login
 
-	@RequestMapping(value = "/loginPro", method = RequestMethod.POST)
+	@RequestMapping(value = "/guestLoginPro", method = RequestMethod.POST)
 	public String loginPro() {
-		System.out.println("GuestController loginPro()");
+		System.out.println("GuestController guestLoginPro()");
 		
 		
 		return "page/main";
 	}//loginPro
 
-	@RequestMapping(value = "/join", method = RequestMethod.GET)
-	public String insert() {
-		System.out.println("GuestController insert()");
+	@RequestMapping(value = "/guestJoin", method = RequestMethod.GET)
+	public String guestJoin() {
+		System.out.println("GuestController guestJoin()");
 		
-		return "page/join";
+		return "page/guestJoin";
 	}//join
 
-	@RequestMapping(value = "/joinPro", method = RequestMethod.POST)
-	public String joinPro(GuestDTO guestDTO){
-		System.out.println("GuestController joinPro()");
+	@RequestMapping(value = "/guestJoinPro", method = RequestMethod.POST)
+	public String guestJoinPro(GuestDTO guestDTO){
+		System.out.println("GuestController guestJoinPro()");
 		guestService.joinGuest(guestDTO);
 		return "page/main";
 	}//joinPro

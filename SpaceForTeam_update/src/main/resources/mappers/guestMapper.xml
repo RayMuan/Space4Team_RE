@@ -14,13 +14,13 @@
 	<select id="getGuestId" resultType="com.space4team.domain.GuestDTO">
 		select *
 		from guest
-		where g_id=#{g_id}
+		where g_id=#{id}
 	</select>
 
 	<select id="getGuestEmail" resultType="com.space4team.domain.GuestDTO">
 		select *
 		from guest
-		where g_email=#{g_email}
+		where g_email=#{email}
 	</select>
 
 </mapper>

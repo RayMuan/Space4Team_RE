@@ -30,14 +30,14 @@ public class GuestServiceImpl implements GuestService{
 	}// joinGuest
 
 	@Override
-	public GuestDTO getGuestId(String g_id) {
+	public GuestDTO getGuestId(String id) {
 		System.out.println("GuestServiceImpl getGuestId()");
-		return guestDAO.getGuestId(g_id);
+		return guestDAO.getGuestId(id);
 	}//getGuestId
 
 	@Override
-	public GuestDTO getGuestEmail(String g_email) {
+	public GuestDTO getGuestEmail(String email) {
 		System.out.println("GuestServiceImpl getGuestEmail()");
-		return guestDAO.getGuestEmail(g_email);
+		return guestDAO.getGuestEmail(email);
 	}//getGuestEmail	
 }

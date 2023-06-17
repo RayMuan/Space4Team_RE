@@ -19,16 +19,16 @@ $('#id').on('focusout', function(){
 		$('#idFeedback').html('<div class="text-danger">아이디를 입력해주세요.</div>');
 	}else{
 		$.ajax({
-			url :'/myapp/dupChk',
 			type:'POST',
-			data: {'id': $('#id').val().trim()},
+			url :'/myapp/dupChk',
+			data: {'id':$('#id').val().trim()},
 			success : function(result){
 				if(result.trim()=='OK'){
 					$('#idFeedback').html('');
 				}else{
 					$('#idFeedback').html('<div class="text-danger">중복된 아이디 입니다.</div>');
 				}
-				},
+			},
 			error : function (jqXHR, textStatus, errorThrown){
 				console.log(jqXHR);  //응답 메시지
 				console.log(textStatus); //"error"로 고정인듯함

@@ -18,10 +18,10 @@
 						<a class="nav-link dropdown-toggle" href="#">Join</a>
 						<ul class="dropdown-menu dropdown-menu-end" id="navDropdownMenu">
 							<li>
-								<a class="dropdown-item" href="NoticeList.no">Guest Join</a>
+								<a class="dropdown-item" href="${pageContext.request.contextPath}/guestJoin">Guest Join</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="NoticeList.no">Host Join</a>
+								<a class="dropdown-item" href="${pageContext.request.contextPath}/hostJoin">Host Join</a>
 							</li>
 						</ul>
 					</li>
