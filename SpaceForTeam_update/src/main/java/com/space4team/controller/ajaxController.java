@@ -26,6 +26,7 @@ public class ajaxController {
 		String id=request.getParameter("id");
 		String email=request.getParameter("email");
 		
+		// 호스트를 따로 만들지 if를 활용하여 이 함수에서 다 처리할지
 		if(id!=null) {
 			guestDTO=guestService.getGuestId(id);			
 		}else if(email != null) {

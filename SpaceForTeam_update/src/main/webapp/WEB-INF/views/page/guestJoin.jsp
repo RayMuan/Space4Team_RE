@@ -20,14 +20,16 @@
                 <div class="container px-5">
                 	<!-- Contact form-->
                 	<div class="rounded-3 py-5 px-4 px-md-5 mb-5">
-						<div class="text-center mb-5">
+						<div class="text-center">
 							<h1 class="fw-bolder">Space For Team</h1>
+							<h3>-Guest Join-</h3>
 						</div>
+						<!-- form  -->
 						<div class="row gx-5 justify-content-center">
 							<div class="col-lg-8 col-xl-6">
-								<form action="${pageContext.request.contextPath}/joinPro" id="joinForm" method="post">
+								<form action="${pageContext.request.contextPath}/guestJoinPro" id="joinForm" method="post">
 									<!-- Id input-->
-									<div class="input-group gap-md-2">
+									<div class="form-floating mt-3">
 										<div class="form-floating col">
 											<input class="form-control" name="g_id" id="id" type="text" placeholder="아이디"/>
         	                           		<label for="id">아이디</label>
@@ -50,14 +52,13 @@
                                 	<div class="form-floating mt-3">
                                 		<input class="form-control" name="g_name" id="name" type="text" placeholder="이름">
                                 		<label for="name">이름</label>
-                                		<div class="invalid-feedback"></div>
+                                		<div id="nameFeedback"></div>
                                 	</div>
 									<!-- Email address input-->
 									<div class="form-floating mt-3">
 										<input class="form-control" name="g_email" id="email" type="email" placeholder="이메링">
 										<label for="email">이메일</label>
-<!-- 										<input type="hidden" name="emaildup" value="" id="emaildup"> -->
-                        	            <div id="emailFeedback"></div>
+										<div id="emailFeedback"></div>
 									</div>
 									<div class="mt-3">
                                 		<button type="submit" class="btn-primary btn-lg col" id="joinBtn" name="joinBtn">회원가입</button>
@@ -65,6 +66,7 @@
                             	</form>
 							</div>
 						</div>
+						<!-- form  -->
 					</div>
 				</div>
 			</section>

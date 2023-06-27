@@ -25,15 +25,15 @@
                             <div class="col-lg-8 col-xl-6">
                             	<form action="${pageContext.request.contextPath}/loginPro" method="post" id="loginForm">
 									<div class="form-floating mb-3">
-                                        <input class="form-control bg-light " id="h_id" name="h_id" type="text" placeholder="name@example.com" data-sb-validations="required,email" />
+                                        <input class="form-control bg-light " id="h_id" name="h_id" type="text"/>
                                         <label for="id">id</label>
-                                        <div class="invalid-feedback" data-sb-feedback="email:required">An id is required.</div>
+                                        <div class="invalid-feedback">An id is required.</div>
                                     </div>
                                     <!-- Password input-->
                                     <div class="form-floating mb-3">
-                                        <input class="form-control bg-light" id="h_pass" name="h_pass" type="password" placeholder="비밀번호" data-sb-validations="required" />
+                                        <input class="form-control bg-light" id="h_pass" name="h_pass" type="password" placeholder="비밀번호"/>
                                         <label for="name">Password</label>
-                                        <div class="invalid-feedback" data-sb-feedback="password:required">A password is required.</div>
+                                        <div class="invalid-feedback">A password is required.</div>
                                     </div>
                                     <div class="memory_box">
                                     	<p>
@@ -48,7 +48,7 @@
                       			</form>
                       			<div class="my-2">
                       				<p class="figure">Space For Team의 회원이 아니신가요?</p>
-                                    <a href="join.jsp" class="mx-2 figure">회원가입</a>
+                                    <a href="${pageContext.request.contextPath}/guestJoin" class="mx-2 figure">회원가입</a>
                       			</div>
                             </div>
                         </div>

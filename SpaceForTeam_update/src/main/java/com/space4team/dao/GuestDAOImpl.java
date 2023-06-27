@@ -30,7 +30,7 @@ public class GuestDAOImpl implements GuestDAO{
 	public GuestDTO getGuestId(String id) {
 		System.out.println("GuestDAOImpl getGuestId");
 		System.out.println(id);
-			return sqlSession.selectOne(namespace+".getGuestId", id);
+		return sqlSession.selectOne(namespace+".getGuestId", id);
 	}//getGuestId
 
 	@Override

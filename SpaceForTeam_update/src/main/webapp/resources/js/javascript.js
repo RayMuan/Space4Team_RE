@@ -30,8 +30,8 @@ $('#id').on('focusout', function(){
 				}
 			},
 			error : function (jqXHR, textStatus, errorThrown){
-				console.log(jqXHR);  //응답 메시지
-				console.log(textStatus); //"error"로 고정인듯함
+				console.log(jqXHR);
+				console.log(textStatus);
 				console.log(errorThrown);
 			}
 		});
@@ -73,7 +73,16 @@ $('#pass').on('focusout', function(){
 		$('#passFeedback').html('<div class="text-danger">비밀번호는 소문자와 숫자의 조합이어야합니다.</div>');				
 	}
 });
-	
+
+// 이름 입력 여부
+$('#name').on('focusout', function(){
+	if($('#name').val().trim()==''){
+		$('#nameFeedback').html('<div class="text-danger">이름을 입력해주세요.</div>'); 		
+	}else{
+		$('#nameFeedback').html(''); 		
+	}
+});
+
 //가입버튼
 $('#joinBtn').on('click', function(){
 	$('#joinForm').submit(function(){
@@ -102,10 +111,11 @@ $('#joinBtn').on('click', function(){
 		}
 		// 이름
 		if($('#name').val().trim()==''){
+			$('#nameFeedback').html('<div class="text-danger">이름을 입력해주세요.</div>');
 			$('#name').focus();
 			return false;
 		}
-		// 이메일 중복x
+		// 이메일
 		if($('#email').val().trim()==''){
 			$('#email').focus();
 			return false;				

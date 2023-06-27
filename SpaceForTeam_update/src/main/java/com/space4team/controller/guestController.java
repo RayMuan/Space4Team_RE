@@ -32,7 +32,7 @@ public class guestController {
 	@RequestMapping(value = "/guestJoinPro", method = RequestMethod.POST)
 	public String guestJoinPro(GuestDTO guestDTO){
 		System.out.println("GuestController guestJoinPro()");
-		guestService.joinGuest(guestDTO);
+		guestService.joinGuest(guestDTO);	
 		return "page/main";
 	}//joinPro
 
