@@ -27,14 +27,14 @@ public class guestController {
 		System.out.println("GuestController guestJoin()");
 		
 		return "page/guestJoin";
-	}//join
+	}//guestJoin
 
 	@RequestMapping(value = "/guestJoinPro", method = RequestMethod.POST)
 	public String guestJoinPro(GuestDTO guestDTO){
 		System.out.println("GuestController guestJoinPro()");
 		guestService.joinGuest(guestDTO);	
 		return "page/main";
-	}//joinPro
+	}//guestJoinPro
 
 	
 }// UserController
